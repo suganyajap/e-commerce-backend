@@ -13,7 +13,7 @@ router.post("/resettoken", service.resetToken);
 
 //verify and update pass;
 router.post(
-  "/verifyAndUpdatePassword/:userid/:token",
+  "/verifyAndUpdatePassword/:userId/:token",
   service.verifyAndUpdatePassword
 );
 

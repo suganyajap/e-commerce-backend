@@ -113,7 +113,7 @@ const service = {
       console.log("userId :", req.params.userId);
       //use id
       console.log("update process");
-      let user = await db.users.findOne({ _id: ObjectId(req.params.userid) });
+      let user = await db.users.findOne({ _id: ObjectId(req.params.userId) });
       if (!user.resetToken)
         return res.status(400).send("invalid or expired link");
       let token = req.params.token; //from url token;
@@ -127,7 +127,7 @@ const service = {
       if (isValidToken && isExpired) {
         const hashedPassword = await bcrypt.hash(req.body.password, Number(12));
         let newPass = await db.users.findOneAndUpdate(
-          { _id: ObjectId(req.params.userid) },
+          { _id: ObjectId(req.params.userId) },
           {
             $set: { password: hashedPassword },
             $unset: { resetToken: 1, resetExpire: 1 },

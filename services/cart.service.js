@@ -1,5 +1,5 @@
 const db = require("../shared/mongo");
-const { ObjectId, ServerCapabilities } = require("mongodb");
+const { ObjectId } = require("mongodb");
 
 const service = {
   //create cart
@@ -44,7 +44,7 @@ const service = {
     console.log("get Process");
     try {
       const cartDetails = await db.cart.findOne({
-        _id: ObjectId(req.params.userid),
+        userId: ObjectId(req.params.userId),
       });
       res.status(200).send(cartDetails);
     } catch (err) {

@@ -13,7 +13,7 @@ router.post("/", verifyTokenAndAdmin, service.createProduct);
 router.put("/:id", verifyTokenAndAuthorization, service.updateProduct);
 
 //delete
-router.delete("/:id", verifyTokenAndAuthorization, service.deleteProduct);
+router.delete("/:id", verifyTokenAndAdmin, service.deleteProduct);
 
 //get
 router.get("/find/:id", service.getProduct);
