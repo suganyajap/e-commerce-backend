@@ -1,4 +1,4 @@
-const { func } = require("joi");
+const joi = require("joi");
 const jwt = require("jsonwebtoken");
 
 function verifyToken(req, res, next) {
